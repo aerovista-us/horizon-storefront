@@ -141,45 +141,6 @@
       ]
     },
     {
-      "id": "CDA-CAN-004",
-      "slug": "a-window-through-the-pines",
-      "title": "A Window Through the Pines",
-      "subtitle": "Lake Coeur d’Alene from the Forested Shore",
-      "collection": "Coeur d’Alene",
-      "location": "Lake Coeur d’Alene, Idaho · exact shore pending confirmation",
-      "orientation": "Panorama",
-      "className": "art-panorama",
-      "image": "gallery/placeholders/artwork-pending.svg",
-      "alt": "Lake Coeur d’Alene seen through a frame of forest and shoreline",
-      "story": "A quiet view of Lake Coeur d’Alene framed by dense North Idaho forest, with open water and layered hills visible beyond the shore.",
-      "specs": [
-        "Planned 20 × 40-inch panoramic format",
-        "1.25-inch canvas depth",
-        "Fade-resistant poly-cotton canvas",
-        "Hand-stretched over solid wood bars",
-        "Mounting brackets included"
-      ],
-      "finishes": [
-        "Gallery-wrapped canvas"
-      ],
-      "status": "proofing",
-      "placeholder": true,
-      "published": true,
-      "imageConfirmed": false,
-      "variants": [
-        {
-          "id": "CDA-CAN-004-20X40-OE",
-          "label": "20 × 40 in",
-          "priceCents": 39500,
-          "sizeConfirmed": false,
-          "squareMapped": false,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        }
-      ]
-    },
-    {
       "id": "CDA-CAN-005",
       "slug": "fairways-along-the-lake",
       "title": "Fairways Along the Lake",
@@ -188,8 +149,8 @@
       "location": "Coeur d’Alene Resort Golf Course, Idaho",
       "orientation": "Panorama",
       "className": "art-panorama",
-      "image": "gallery/mockups/CDA-CAN-005-fairways-along-the-lake-mockup.png",
-      "alt": "Canvas mockup of a 360-degree aerial panorama across the Coeur d’Alene Resort Golf Course shoreline and lake",
+      "image": "gallery/display/CDA-CAN-005-fairways-along-the-lake.jpg",
+      "alt": "Aerial panorama across the Coeur d’Alene Resort Golf Course shoreline and Lake Coeur d’Alene",
       "story": "A sweeping stitched panorama follows the resort golf course shoreline between manicured fairways and deep blue water, with the floating green visible offshore.",
       "specs": [
         "24 × 48-inch panoramic format",
@@ -229,8 +190,8 @@
       "location": "Coeur d’Alene Resort Golf Course, Idaho",
       "orientation": "Panorama",
       "className": "art-panorama",
-      "image": "gallery/mockups/CDA-CAN-006-lake-links-floating-green-mockup.png",
-      "alt": "Canvas mockup of a 360-degree aerial panorama featuring Lake Coeur d’Alene and the resort floating green",
+      "image": "gallery/display/CDA-CAN-006-lake-links-floating-green.jpg",
+      "alt": "Aerial panorama of Lake Coeur d’Alene, resort shoreline, docks, and the floating green",
       "story": "The resort clubhouse, shoreline docks, open lake, and celebrated floating green come together beneath a broad, cloud-filled North Idaho sky.",
       "specs": [
         "24 × 48-inch panoramic format",
@@ -270,8 +231,8 @@
       "location": "CDA Resort Circle, Coeur d’Alene, Idaho",
       "orientation": "Panorama",
       "className": "art-panorama",
-      "image": "gallery/mockups/CDA-CAN-007-clock-at-resort-circle-mockup.png",
-      "alt": "Canvas mockup of the clock at CDA Resort Circle centered in a 360-degree downtown Coeur d’Alene panorama",
+      "image": "gallery/display/CDA-CAN-007-clock-at-resort-circle.jpg",
+      "alt": "Aerial panorama centered on the clock at CDA Resort Circle, downtown Coeur d’Alene, and the lake",
       "story": "The landmark clock anchors an immersive view connecting the resort, downtown streets, landscaped lawns, autumn trees, and the Coeur d’Alene waterfront.",
       "specs": [
         "24 × 48-inch panoramic format",
@@ -304,38 +265,41 @@
       ]
     },
     {
-      "id": "CDA-CAN-008",
-      "slug": "where-downtown-opens-to-the-lake",
-      "title": "Where Downtown Opens to the Lake",
-      "subtitle": "The Resort, Marina, and Lake Coeur d’Alene in 360°",
-      "collection": "Coeur d’Alene 360°",
-      "location": "CDA Resort Circle, Coeur d’Alene, Idaho",
-      "orientation": "Panorama",
-      "className": "art-panorama",
-      "image": "gallery/placeholders/artwork-pending.svg",
-      "alt": "Downtown Coeur d’Alene opening toward the resort marina and lake in a 360-degree panorama",
-      "story": "Downtown buildings, public lawns, marina space, and the Coeur d’Alene waterfront form a continuous connection between the city and the lake.",
+      "id": "CDA-CAN-010",
+      "slug": "mahogany-wake",
+      "title": "Mahogany Wake",
+      "subtitle": "A Classic Runabout on Lake Coeur d’Alene",
+      "collection": "Coeur d’Alene",
+      "location": "Lake Coeur d’Alene, Idaho",
+      "orientation": "Landscape",
+      "className": "art-standard",
+      "image": "gallery/display/CDA-CAN-010-mahogany-wake.jpg",
+      "alt": "Aerial view of a classic mahogany runabout crossing calm Lake Coeur d’Alene water",
+      "story": "Warm mahogany, bright deckwork, and a precise wake give this classic runabout a sculptural presence against the lake’s dark, glass-like surface.",
       "specs": [
-        "Planned 24 × 48-inch panoramic format",
+        "20 × 28-inch landscape format",
         "1.25-inch canvas depth",
         "Fade-resistant poly-cotton canvas",
         "Hand-stretched over solid wood bars",
-        "Mounting brackets included"
+        "Mounting brackets included",
+        "Ready to hang"
       ],
       "finishes": [
         "Gallery-wrapped canvas"
       ],
-      "status": "proofing",
-      "placeholder": true,
+      "featured": false,
+      "status": "preview",
       "published": true,
-      "imageConfirmed": false,
+      "imageConfirmed": true,
       "variants": [
         {
-          "id": "CDA-CAN-008-24X48-OE",
-          "label": "24 × 48 in",
-          "priceCents": 52500,
-          "sizeConfirmed": false,
-          "squareMapped": false,
+          "id": "CDA-CAN-010-20X28-OE",
+          "label": "20 × 28 in",
+          "priceCents": 27500,
+          "cartKey": "Horizon__CDA-CAN-010-20X28-OE",
+          "squareVariationId": "HM7W4RFQAJOTW4F7VCCPDQSK",
+          "sizeConfirmed": true,
+          "squareMapped": true,
           "squareProductionReady": false,
           "printfulMapped": false,
           "checkoutReady": false

@@ -19,7 +19,8 @@
     selected: null,
     variantId: null,
     finish: null,
-    roomView: false
+    roomView: false,
+    roomTone: "gallery"
   };
 
   var grid = document.getElementById("artGrid");
@@ -28,6 +29,9 @@
   var artworkPanel = modal.querySelector(".artwork-panel");
   var stage = document.getElementById("artworkStage");
   var roomContext = document.getElementById("roomContext");
+  var roomControls = document.getElementById("roomControls");
+  var roomScale = document.getElementById("roomScale");
+  var roomToneButtons = Array.prototype.slice.call(roomControls.querySelectorAll("[data-room-tone]"));
   var previewCanvas = document.getElementById("previewCanvas");
   var previewImg = document.getElementById("previewImage");
   var previewImgSecondary = document.getElementById("previewImageSecondary");
@@ -237,6 +241,7 @@
     var readiness = (state.selected.issues || []).concat(variant.issues || []);
     productReadiness.textContent = readiness.join(" ") ||
       (variant.checkoutReady ? "Square checkout and Printful fulfillment are verified." : "Commerce verification is pending.");
+    if (state.roomView) syncRoomView();
   }
 
   function renderProductOptions() {
@@ -266,8 +271,15 @@
     state.variantId = variant && variant.id;
     state.finish = (art.finishes || [])[0] || null;
     state.roomView = false;
+    state.roomTone = "gallery";
     lastFocused = triggerEl || document.activeElement;
 
+    stage.classList.remove("room-shape-panorama", "room-shape-tall", "room-shape-square", "room-shape-standard");
+    stage.classList.add(
+      art.className === "art-panorama" ? "room-shape-panorama" :
+        (art.className === "art-tall" ? "room-shape-tall" :
+          (art.className === "art-square" ? "room-shape-square" : "room-shape-standard"))
+    );
     previewCanvas.classList.toggle("diptych", art.presentation === "diptych");
     previewCanvas.style.setProperty("--canvas-image", canvasImageValue(art.image));
     viewToggle.hidden = Boolean(art.placeholder);
@@ -314,8 +326,17 @@
 
   function syncRoomView() {
     stage.classList.toggle("room-view", state.roomView);
+    stage.setAttribute("data-room-tone", state.roomTone);
     roomContext.hidden = !state.roomView;
-    viewToggle.textContent = state.roomView ? "Artwork view" : "View in room";
+    roomControls.hidden = !state.roomView;
+    roomToneButtons.forEach(function (button) {
+      button.setAttribute("aria-pressed", button.getAttribute("data-room-tone") === state.roomTone ? "true" : "false");
+    });
+    var variant = selectedVariant();
+    roomScale.textContent = variant
+      ? variant.label.split(" · ")[0] + " · shown on a 9 ft gallery wall"
+      : "Gallery scale preview";
+    viewToggle.textContent = state.roomView ? "Close room view" : "View in room";
   }
 
   function loadCart() {
@@ -567,6 +588,12 @@
   viewToggle.addEventListener("click", function () {
     state.roomView = !state.roomView;
     syncRoomView();
+  });
+  roomToneButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      state.roomTone = button.getAttribute("data-room-tone") || "gallery";
+      syncRoomView();
+    });
   });
   modalClose.addEventListener("click", closeArtwork);
   addToBagButton.addEventListener("click", addSelectedToCart);
