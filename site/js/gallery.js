@@ -109,6 +109,10 @@
     toastTimer = window.setTimeout(function () { toastEl.hidden = true; }, 3800);
   }
 
+  function canvasImageValue(src) {
+    return 'url("' + new URL(src, document.baseURI).href.replace(/"/g, "%22") + '")';
+  }
+
   function renderFilters() {
     filterRow.textContent = "";
     filters.forEach(function (item) {
@@ -148,6 +152,7 @@
       var button = document.createElement("button");
       button.type = "button";
       button.className = "canvas";
+      button.style.setProperty("--canvas-image", canvasImageValue(art.image));
       button.addEventListener("click", function () { openArtwork(art, button); });
 
       var media = document.createElement("span");
@@ -264,6 +269,7 @@
     lastFocused = triggerEl || document.activeElement;
 
     previewCanvas.classList.toggle("diptych", art.presentation === "diptych");
+    previewCanvas.style.setProperty("--canvas-image", canvasImageValue(art.image));
     viewToggle.hidden = Boolean(art.placeholder);
     previewImg.src = art.image;
     previewImg.alt = art.alt;
