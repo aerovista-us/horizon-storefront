@@ -4,7 +4,8 @@ Public, customer-safe GitHub Pages artifact for the Horizon aerial-art
 storefront.
 
 - Preview: `https://aerovista-us.github.io/horizon-storefront/`
-- Production hostname: `https://horizon.aerovista.us`
+- Production hostname: `https://horizon.aerovista.us` through the shared
+  Cloudflare edge Worker
 - Commerce API: `https://api.aerovista.us`
 
 The private source catalog, source masters, provider evidence, SQL, and
