@@ -14,6 +14,7 @@
       "orientation": "Landscape",
       "className": "art-standard",
       "image": "gallery/display/CDA-CAN-010-mahogany-wake.jpg",
+      "wallImage": "gallery/wall/CDA-CAN-010-mahogany-wake-wall.webp",
       "alt": "Aerial view of a classic mahogany runabout crossing calm Lake Coeur d’Alene water",
       "story": "Warm mahogany, bright deckwork, and a precise wake give this classic runabout a sculptural presence against the lake’s dark, glass-like surface.",
       "specs": [
@@ -60,6 +61,7 @@
       "orientation": "Panorama",
       "className": "art-panorama",
       "image": "gallery/06-dji-20231015121918-0021-d.webp",
+      "wallImage": "gallery/wall/CDA-CAN-001-autumn-wall.webp",
       "alt": "Aerial view across autumn trees and downtown Coeur d’Alene toward the lake and surrounding mountains",
       "story": "Coeur d’Alene rises through a canopy of autumn color, framed by the lake, distant mountains, and the familiar skyline of North Idaho.",
       "specs": [
@@ -162,6 +164,7 @@
       "orientation": "Panorama",
       "className": "art-panorama",
       "image": "gallery/05-dji-20231014111331-0018-d.webp",
+      "wallImage": "gallery/wall/CDA-CAN-002-road-wall.webp",
       "alt": "Aerial view down a tree-lined Coeur d’Alene roadway toward downtown, the lake, and mountains",
       "story": "A tree-lined route through autumn leads toward downtown Coeur d’Alene, the lake, and the mountains beyond.",
       "specs": [
@@ -208,6 +211,7 @@
       "orientation": "Panorama",
       "className": "art-panorama",
       "image": "gallery/display/CDA-CAN-006-lake-links-floating-green.jpg",
+      "wallImage": "gallery/wall/CDA-CAN-006-floating-green-wall.webp",
       "alt": "Aerial panorama of Lake Coeur d’Alene, resort shoreline, docks, and the floating green",
       "story": "The resort clubhouse, shoreline docks, open lake, and celebrated floating green come together beneath a broad, cloud-filled North Idaho sky.",
       "specs": [

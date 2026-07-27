@@ -67,9 +67,19 @@
         <div><span>04</span><strong>Solid wood</strong><small>Hand-stretched bars</small></div>
       </div>
 
-      <div class="filter-row" id="filterRow" role="group" aria-label="Filter artwork by collection"></div>
+      <div class="wall-toolbar" id="wallToolbar">
+        <div>
+          <span>PROPORTIONAL GALLERY WALL</span>
+          <strong>Canvas dimensions are shown at the same relative scale.</strong>
+        </div>
+        <div class="wall-mobile-controls" aria-label="Navigate the gallery wall">
+          <button id="wallPrev" type="button" aria-label="Previous piece">←</button>
+          <span id="wallPosition" aria-live="polite">01 / 04</span>
+          <button id="wallNext" type="button" aria-label="Next piece">→</button>
+        </div>
+      </div>
 
-      <div class="art-grid" id="artGrid"></div>
+      <div class="gallery-wall" id="artGrid" aria-label="Coeur d’Alene canvas gallery wall"></div>
     </section>
 
     <section class="featured-piece" id="featured">

@@ -11,12 +11,13 @@
   var catalog = null;
   var artworks = [];
   var consumerArtworks = [];
-  var filters = ["All works"];
   var lastFocused = null;
   var toastTimer = null;
+  var wallIndex = 0;
+  var wallTrack = null;
+  var wallScrollFrame = null;
 
   var state = {
-    filter: "All works",
     selected: null,
     variantId: null,
     finish: null,
@@ -25,7 +26,10 @@
   };
 
   var grid = document.getElementById("artGrid");
-  var filterRow = document.getElementById("filterRow");
+  var wallToolbar = document.getElementById("wallToolbar");
+  var wallPrev = document.getElementById("wallPrev");
+  var wallNext = document.getElementById("wallNext");
+  var wallPosition = document.getElementById("wallPosition");
   var modal = document.getElementById("artworkModal");
   var artworkPanel = modal.querySelector(".artwork-panel");
   var stage = document.getElementById("artworkStage");
@@ -118,45 +122,53 @@
     return 'url("' + new URL(src, document.baseURI).href.replace(/"/g, "%22") + '")';
   }
 
-  function renderFilters() {
-    filterRow.textContent = "";
-    filters.forEach(function (item) {
-      var button = document.createElement("button");
-      button.type = "button";
-      button.textContent = item;
-      button.className = state.filter === item ? "active" : "";
-      button.setAttribute("aria-pressed", state.filter === item ? "true" : "false");
-      button.addEventListener("click", function () {
-        state.filter = item;
-        renderFilters();
-        renderGrid();
-      });
-      filterRow.appendChild(button);
-    });
+  function canvasDimensions(variant) {
+    var match = variant && String(variant.label || "").match(/(\d+(?:\.\d+)?)\s*×\s*(\d+(?:\.\d+)?)/);
+    if (!match) return { height: 20, width: 28 };
+    return { height: Number(match[1]), width: Number(match[2]) };
   }
 
-  function layoutClass(index, total) {
-    if (total === 1 || (total % 2 === 1 && index === total - 1)) return "layout-center";
-    var alternatePair = Math.floor(index / 2) % 2 === 1;
-    if (alternatePair) return index % 2 === 0 ? "layout-b-left" : "layout-b-right";
-    return index % 2 === 0 ? "layout-a-left" : "layout-a-right";
+  function syncWallControls() {
+    var total = consumerArtworks.length;
+    wallPosition.textContent = String(wallIndex + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
+    wallPrev.disabled = wallIndex <= 0;
+    wallNext.disabled = wallIndex >= total - 1;
+  }
+
+  function moveWallTo(index, behavior) {
+    var pieces = wallTrack ? Array.prototype.slice.call(wallTrack.querySelectorAll(".wall-piece")) : [];
+    if (!pieces.length) return;
+    wallIndex = Math.max(0, Math.min(index, pieces.length - 1));
+    var piece = pieces[wallIndex];
+    wallTrack.scrollTo({
+      left: piece.offsetLeft - Math.max(0, (wallTrack.clientWidth - piece.offsetWidth) / 2),
+      behavior: behavior || "smooth"
+    });
+    syncWallControls();
   }
 
   function renderGrid() {
-    var visible = consumerArtworks.filter(function (art) {
-      return state.filter === "All works" || art.collection === state.filter;
-    });
     grid.textContent = "";
+    var room = document.createElement("div");
+    room.className = "wall-room";
+    wallTrack = document.createElement("div");
+    wallTrack.className = "wall-display";
 
-    visible.forEach(function (art, index) {
+    consumerArtworks.forEach(function (art, index) {
       var variant = preferredVariant(art);
+      var dimensions = canvasDimensions(variant);
       var article = document.createElement("article");
-      article.className = "art-card " + art.className +
-        (art.placeholder ? " art-placeholder" : "") + " " + layoutClass(index, visible.length);
+      article.className = "wall-piece";
+      article.style.setProperty("--canvas-w", (dimensions.width * 6.1) + "px");
+      article.style.setProperty("--canvas-h", (dimensions.height * 6.1) + "px");
+      article.style.setProperty("--canvas-mobile-w", (dimensions.width * 6.5) + "px");
+      article.style.setProperty("--canvas-mobile-h", (dimensions.height * 6.5) + "px");
 
+      var artZone = document.createElement("div");
+      artZone.className = "wall-art-zone";
       var button = document.createElement("button");
       button.type = "button";
-      button.className = "canvas";
+      button.className = "canvas wall-canvas";
       button.style.setProperty("--canvas-image", canvasImageValue(art.image));
       button.addEventListener("click", function () { openArtwork(art, button); });
 
@@ -164,9 +176,9 @@
       media.className = "canvas-media" + (art.presentation === "diptych" ? " diptych" : "");
       presentationImages(art).forEach(function (src, imageIndex) {
         var img = document.createElement("img");
-        img.src = src;
+        img.src = imageIndex === 0 ? (art.wallImage || src) : src;
         img.alt = imageIndex === 0 ? art.alt : "";
-        img.loading = index > 1 ? "lazy" : "eager";
+        img.loading = "eager";
         media.appendChild(img);
       });
       button.appendChild(media);
@@ -178,65 +190,76 @@
 
       var cue = document.createElement("span");
       cue.className = "view-cue";
-      cue.innerHTML = (art.placeholder ? "View details" : "View artwork") + " <b>↗</b>";
+      cue.innerHTML = "View the Piece <b>↗</b>";
       button.appendChild(cue);
-      var status = document.createElement("span");
-      status.className = "product-status";
-      status.textContent = productStatus(art, variant);
-      button.appendChild(status);
-      article.appendChild(button);
+      artZone.appendChild(button);
+      article.appendChild(artZone);
 
       var meta = document.createElement("div");
-      meta.className = "art-meta";
-      var left = document.createElement("div");
-      left.className = "art-ident";
+      meta.className = "wall-label";
+      var labelTop = document.createElement("div");
+      labelTop.className = "wall-label-top";
       var number = document.createElement("span");
       number.textContent = String(index + 1).padStart(2, "0");
-      var identity = document.createElement("div");
+      var status = document.createElement("span");
+      status.textContent = productStatus(art, variant);
+      labelTop.appendChild(number);
+      labelTop.appendChild(status);
       var heading = document.createElement("h3");
       heading.textContent = art.title;
       var subtitle = document.createElement("p");
-      subtitle.className = "art-subtitle";
+      subtitle.className = "wall-subtitle";
       subtitle.textContent = art.subtitle;
-      identity.appendChild(heading);
-      identity.appendChild(subtitle);
-      left.appendChild(number);
-      left.appendChild(identity);
 
-      var right = document.createElement("div");
-      right.className = "art-commerce";
+      var offer = document.createElement("div");
+      offer.className = "wall-offer";
       var format = document.createElement("p");
-      format.className = "art-format";
       format.textContent = variant
         ? variant.label + " · " + ((art.finishes || [])[0] || "Canvas")
         : "Format pending";
-      var price = document.createElement("p");
-      price.className = "art-price";
+      var price = document.createElement("strong");
       price.textContent = variant ? money(variant.priceCents) : "Availability pending";
-      var actions = document.createElement("div");
-      actions.className = "art-actions";
+      offer.appendChild(format);
+      offer.appendChild(price);
+
       var viewButton = document.createElement("button");
       viewButton.type = "button";
-      viewButton.className = "art-view-button";
+      viewButton.className = "wall-view-button";
       viewButton.textContent = "View the Piece";
       viewButton.addEventListener("click", function () { openArtwork(art, viewButton); });
-      actions.appendChild(viewButton);
-      if ((art.variants || []).length > 1) {
-        var sizesButton = document.createElement("button");
-        sizesButton.type = "button";
-        sizesButton.className = "art-sizes-button";
-        sizesButton.textContent = "Available Sizes";
-        sizesButton.addEventListener("click", function () { openArtwork(art, sizesButton); });
-        actions.appendChild(sizesButton);
-      }
-      right.appendChild(format);
-      right.appendChild(price);
-      right.appendChild(actions);
-      meta.appendChild(left);
-      meta.appendChild(right);
+      meta.appendChild(labelTop);
+      meta.appendChild(heading);
+      meta.appendChild(subtitle);
+      meta.appendChild(offer);
+      meta.appendChild(viewButton);
       article.appendChild(meta);
-      grid.appendChild(article);
+      wallTrack.appendChild(article);
     });
+
+    room.appendChild(wallTrack);
+    grid.appendChild(room);
+    wallIndex = 0;
+    syncWallControls();
+    wallTrack.addEventListener("scroll", function () {
+      window.cancelAnimationFrame(wallScrollFrame);
+      wallScrollFrame = window.requestAnimationFrame(function () {
+        if (window.innerWidth > 850) return;
+        var pieces = Array.prototype.slice.call(wallTrack.querySelectorAll(".wall-piece"));
+        var center = wallTrack.scrollLeft + wallTrack.clientWidth / 2;
+        var nearest = 0;
+        var distance = Infinity;
+        pieces.forEach(function (piece, index) {
+          var pieceCenter = piece.offsetLeft + piece.offsetWidth / 2;
+          var nextDistance = Math.abs(pieceCenter - center);
+          if (nextDistance < distance) {
+            distance = nextDistance;
+            nearest = index;
+          }
+        });
+        wallIndex = nearest;
+        syncWallControls();
+      });
+    }, { passive: true });
   }
 
   function renderOptions(container, values, selectedValue, labelFor, onSelect) {
@@ -604,10 +627,6 @@
       consumerArtworks = artworks.filter(function (product) {
         return product.consumerVisible !== false;
       });
-      filters = ["All works"].concat(Array.from(new Set(consumerArtworks.map(function (product) {
-        return product.collection;
-      }).filter(Boolean))));
-      renderFilters();
       renderGrid();
       renderCart();
       document.querySelectorAll("[data-open-product]").forEach(function (button) {
@@ -618,7 +637,7 @@
       });
     } catch (error) {
       grid.innerHTML = "<p class=\"catalog-error\">The collection is temporarily unavailable. Please contact studio@aerovista.us.</p>";
-      filterRow.hidden = true;
+      wallToolbar.hidden = true;
       console.error(error);
     }
   }
@@ -627,6 +646,8 @@
     state.roomView = !state.roomView;
     syncRoomView();
   });
+  wallPrev.addEventListener("click", function () { moveWallTo(wallIndex - 1); });
+  wallNext.addEventListener("click", function () { moveWallTo(wallIndex + 1); });
   roomToneButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       state.roomTone = button.getAttribute("data-room-tone") || "gallery";
