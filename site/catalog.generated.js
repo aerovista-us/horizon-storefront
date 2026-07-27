@@ -43,12 +43,11 @@ window.HORIZON_CATALOG = {
           "label": "12 × 24 in",
           "priceCents": 19500,
           "cartKey": "Horizon__CDA-CAN-014-12X24-OE",
-          "squareVariationId": null,
+          "squareVariationId": "7GHIQT64RIQ7FG75JXRY4WXM",
           "sizeConfirmed": true,
-          "squareMapped": false,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
+          "squareMapped": true,
+          "squareProductionReady": true,
+          "checkoutReady": true
         }
       ]
     },
@@ -93,9 +92,8 @@ window.HORIZON_CATALOG = {
           "squareVariationId": "HM7W4RFQAJOTW4F7VCCPDQSK",
           "sizeConfirmed": true,
           "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
+          "squareProductionReady": true,
+          "checkoutReady": true
         }
       ]
     },
@@ -131,17 +129,6 @@ window.HORIZON_CATALOG = {
       "imageConfirmed": true,
       "variants": [
         {
-          "id": "CDA-CAN-003-24X32-OE",
-          "label": "24 × 32 in · catalog variation pending",
-          "priceCents": 34500,
-          "cartKey": null,
-          "squareVariationId": null,
-          "sizeConfirmed": true,
-          "squareMapped": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        },
-        {
           "id": "CDA-CAN-003-CATALOG-LARGE",
           "label": "30 × 40 in",
           "priceCents": 49500,
@@ -149,9 +136,8 @@ window.HORIZON_CATALOG = {
           "squareVariationId": "QNGEHC2XEGDTJC3GMEJREHR5",
           "sizeConfirmed": true,
           "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
+          "squareProductionReady": true,
+          "checkoutReady": true
         }
       ]
     },
@@ -196,9 +182,8 @@ window.HORIZON_CATALOG = {
           "squareVariationId": "75ED3TP2HPJ7AWUSU5O5ROXU",
           "sizeConfirmed": true,
           "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
+          "squareProductionReady": true,
+          "checkoutReady": true
         }
       ]
     },
@@ -242,9 +227,8 @@ window.HORIZON_CATALOG = {
           "squareVariationId": "4YFQ5YTYAVKDFFZTL5J34VQR",
           "sizeConfirmed": true,
           "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
+          "squareProductionReady": true,
+          "checkoutReady": true
         }
       ]
     }

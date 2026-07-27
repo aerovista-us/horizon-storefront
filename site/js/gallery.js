@@ -1,7 +1,6 @@
 /* SOT: horizon/catalog.json is the Horizon catalog and commerce-readiness source.
-   Square remains authoritative for price at checkout; Printful mapping remains
-   authoritative for fulfillment. Customer checkout is blocked unless both are
-   explicitly verified for every cart line. */
+   Square remains authoritative for checkout pricing. Production routing stays
+   internal, and customer checkout remains fail-closed until explicitly ready. */
 (function () {
   "use strict";
 
@@ -70,7 +69,6 @@
   var checkoutStatus = document.getElementById("checkoutStatus");
   var continueShopping = document.getElementById("continueShopping");
   var squareHealth = document.getElementById("squareHealth");
-  var printfulHealth = document.getElementById("printfulHealth");
   var toastEl = document.getElementById("toast");
 
   function money(cents) {
@@ -87,12 +85,14 @@
 
   function variantFor(product, variantId) {
     return product && (product.variants || []).find(function (variant) {
-      return variant.id === variantId;
+      return variant.id === variantId && variant.customerVisible !== false;
     }) || null;
   }
 
   function preferredVariant(product) {
-    var variants = (product && product.variants) || [];
+    var variants = ((product && product.variants) || []).filter(function (variant) {
+      return variant.customerVisible !== false;
+    });
     return variants.find(function (variant) { return variant.squareMapped; }) || variants[0] || null;
   }
 
@@ -286,18 +286,20 @@
 
     panelPrice.textContent = money(variant.priceCents);
     addToBagButton.disabled = !variant.squareMapped || !variant.squareVariationId || !variant.cartKey;
-    purchaseState.textContent = variant.checkoutReady ? "Ready" :
-      (variant.squareMapped ? "Save · checkout pending" : "Catalog setup required");
-    var readiness = (state.selected.issues || []).concat(variant.issues || []);
-    productReadiness.textContent = readiness.join(" ") ||
-      (variant.checkoutReady ? "Square checkout and Printful fulfillment are verified." : "Commerce verification is pending.");
+    purchaseState.textContent = variant.checkoutReady ? "Ready to order" :
+      (variant.squareMapped ? "Online checkout pending" : "Online ordering pending");
+    productReadiness.textContent = variant.checkoutReady
+      ? "You’ll be connected to Square’s secure checkout to confirm shipping and complete payment."
+      : "Online ordering is being prepared. Contact the studio for current availability.";
     if (state.roomView) syncRoomView();
   }
 
   function renderProductOptions() {
     var product = state.selected;
     if (!product) return;
-    var variants = product.variants || [];
+    var variants = (product.variants || []).filter(function (variant) {
+      return variant.customerVisible !== false;
+    });
     renderOptions(sizeOptions, variants, selectedVariant(), function (variant) {
       return variant.label + " · " + money(variant.priceCents);
     }, function (variant) {
@@ -424,7 +426,7 @@
     if (existing) existing.qty = Math.min(10, (Number(existing.qty) || 1) + 1);
     else cart.push({ productId: product.id, variantId: variant.id, qty: 1 });
     saveCart(cart);
-    showToast(variant.checkoutReady ? "Added to your bag." : "Saved to your bag — checkout verification is still pending.");
+    showToast(variant.checkoutReady ? "Added to your bag." : "Saved to your bag — online checkout is still being prepared.");
     closeArtwork();
     openCart();
   }
@@ -458,7 +460,7 @@
       var variant = document.createElement("p");
       variant.textContent = line.variant.label;
       var readiness = document.createElement("small");
-      readiness.textContent = line.variant.checkoutReady ? "Ready for checkout" : "Saved · fulfillment verification pending";
+      readiness.textContent = line.variant.checkoutReady ? "Ready for checkout" : "Saved · online checkout pending";
       var controls = document.createElement("div");
       controls.className = "quantity-controls";
       var minus = document.createElement("button");
@@ -499,18 +501,14 @@
     var squareReady = lines.length > 0 && lines.every(function (line) {
       return line.variant.squareProductionReady;
     });
-    var printfulReady = lines.length > 0 && lines.every(function (line) {
-      return line.variant.printfulMapped;
-    });
     setHealth(squareHealth, squareReady);
-    setHealth(printfulHealth, printfulReady);
     var checkoutReady = lines.length > 0 && lines.every(function (line) {
       return line.variant.checkoutReady;
     });
     checkoutButton.disabled = !checkoutReady;
     checkoutButton.textContent = checkoutReady ? "Continue to secure checkout" : "Checkout verification pending";
     if (lines.length && !checkoutReady) {
-      checkoutStatus.textContent = "Your selections are saved. Checkout stays paused until size, proof, Square, and Printful production checks are complete.";
+      checkoutStatus.textContent = "Your selections are saved. Online checkout is still being prepared for one or more pieces.";
     }
   }
 
@@ -550,8 +548,7 @@
     if (blocked.length) {
       checkoutStatus.textContent = "Checkout is safely paused: " + blocked.map(function (line) {
         if (!line.variant.sizeConfirmed) return line.product.title + " needs size confirmation";
-        if (!line.variant.printfulMapped) return line.product.title + " needs its Printful mapping";
-        return line.product.title + " needs final commerce verification";
+        return line.product.title + " is not yet available for online checkout";
       }).join("; ") + ".";
       return;
     }

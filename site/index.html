@@ -12,7 +12,7 @@
   <meta property="og:image" content="gallery/03-dji-20230923161411-0006-d-copy.webp" />
   <meta name="robots" content="noindex" /><!-- Gated public preview: remove only after commerce launch approval -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/styles.css?v=20260727-wall-scale" />
+  <link rel="stylesheet" href="css/styles.css?v=20260727-two-edge-shadow" />
 </head>
 <body>
   <main>
@@ -188,7 +188,7 @@
         <div class="edition-line"><span>Open edition</span><span id="panelSku"></span></div>
         <button class="reserve-button" id="addToBagButton" type="button">Add to bag <span id="purchaseState">Readiness check</span></button>
         <a class="inquiry-link" id="inquiryLink" href="mailto:studio@aerovista.us">Ask the studio about this work <span>→</span></a>
-        <p class="fine-print" id="productReadiness">Checkout activates only after the selected Square variation and its Printful fulfillment mapping are verified.</p>
+        <p class="fine-print" id="productReadiness">You’ll be connected to Square’s secure checkout to confirm shipping and complete payment.</p>
       </aside>
     </div>
 
@@ -208,14 +208,13 @@
       </div>
       <div class="cart-summary" id="cartSummary" hidden>
         <div><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
-        <p>Shipping address and final charges are confirmed in Square’s hosted checkout.</p>
+        <p>You’ll be connected to Square’s secure checkout to confirm shipping and complete payment.</p>
         <button class="checkout-button" id="checkoutButton" type="button">Continue to secure checkout</button>
         <p class="checkout-status" id="checkoutStatus" role="status" aria-live="polite"></p>
         <a href="mailto:studio@aerovista.us?subject=Horizon%20order%20help">Need help with this order? <span>→</span></a>
       </div>
       <div class="commerce-health" aria-label="Commerce connection status">
         <span><i class="health-dot pending" id="squareHealth"></i>Square checkout</span>
-        <span><i class="health-dot pending" id="printfulHealth"></i>Printful fulfillment</span>
       </div>
     </aside>
 
