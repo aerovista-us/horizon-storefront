@@ -95,6 +95,61 @@
       ]
     },
     {
+      "id": "CDA-CAN-003",
+      "slug": "harbor-at-the-heart",
+      "title": "Harbor at the Heart",
+      "subtitle": "The Coeur d’Alene Resort and Marina",
+      "collection": "Coeur d’Alene",
+      "location": "Coeur d’Alene, Idaho",
+      "orientation": "Landscape",
+      "className": "art-wide",
+      "image": "gallery/03-dji-20230923161411-0006-d-copy.webp",
+      "alt": "Aerial photograph of the Coeur d’Alene Resort, marina slips, boardwalk, and lakefront",
+      "story": "The Coeur d’Alene Resort rises above the lakefront, surrounded by the marina, boardwalk, and deep blue water at the heart of the city.",
+      "specs": [
+        "1.25-inch canvas depth",
+        "Fade-resistant poly-cotton canvas",
+        "Hand-stretched over solid wood bars",
+        "Mounting brackets included",
+        "Ready to hang"
+      ],
+      "finishes": [
+        "Gallery-wrapped canvas"
+      ],
+      "featured": true,
+      "collectionStatus": "featured",
+      "publicVisible": true,
+      "releasePriority": 3,
+      "status": "preview",
+      "published": true,
+      "imageConfirmed": true,
+      "variants": [
+        {
+          "id": "CDA-CAN-003-24X32-OE",
+          "label": "24 × 32 in · catalog variation pending",
+          "priceCents": 34500,
+          "cartKey": null,
+          "squareVariationId": null,
+          "sizeConfirmed": true,
+          "squareMapped": false,
+          "printfulMapped": false,
+          "checkoutReady": false
+        },
+        {
+          "id": "CDA-CAN-003-CATALOG-LARGE",
+          "label": "30 × 40 in",
+          "priceCents": 49500,
+          "cartKey": "Horizon__CDA-CAN-003-CATALOG-LARGE",
+          "squareVariationId": "QNGEHC2XEGDTJC3GMEJREHR5",
+          "sizeConfirmed": true,
+          "squareMapped": true,
+          "squareProductionReady": false,
+          "printfulMapped": false,
+          "checkoutReady": false
+        }
+      ]
+    },
+    {
       "id": "CDA-CAN-002",
       "slug": "the-road-to-the-lake",
       "title": "The Road to the Lake",
@@ -120,7 +175,7 @@
       "featured": true,
       "collectionStatus": "featured",
       "publicVisible": true,
-      "releasePriority": 3,
+      "releasePriority": 4,
       "status": "preview",
       "published": true,
       "imageConfirmed": true,
@@ -131,6 +186,50 @@
           "priceCents": 39500,
           "cartKey": "Horizon__CDA-CAN-002-20X40-OE",
           "squareVariationId": "75ED3TP2HPJ7AWUSU5O5ROXU",
+          "sizeConfirmed": true,
+          "squareMapped": true,
+          "squareProductionReady": false,
+          "printfulMapped": false,
+          "checkoutReady": false
+        }
+      ]
+    },
+    {
+      "id": "CDA-CAN-006",
+      "slug": "lake-links-and-the-floating-green",
+      "title": "Lake, Links, and the Floating Green",
+      "subtitle": "The Coeur d’Alene Resort Golf Course in 360°",
+      "collection": "Coeur d’Alene 360°",
+      "location": "Coeur d’Alene Resort Golf Course, Idaho",
+      "orientation": "Panorama",
+      "className": "art-panorama",
+      "image": "gallery/display/CDA-CAN-006-lake-links-floating-green.jpg",
+      "alt": "Aerial panorama of Lake Coeur d’Alene, resort shoreline, docks, and the floating green",
+      "story": "The resort clubhouse, shoreline docks, open lake, and celebrated floating green come together beneath a broad, cloud-filled North Idaho sky.",
+      "specs": [
+        "24 × 48-inch panoramic format",
+        "Exact 2:1 source artwork",
+        "1.25-inch canvas depth",
+        "Fade-resistant poly-cotton canvas",
+        "Mounting brackets included"
+      ],
+      "finishes": [
+        "Gallery-wrapped canvas"
+      ],
+      "featured": true,
+      "collectionStatus": "featured",
+      "publicVisible": true,
+      "releasePriority": 5,
+      "status": "preview",
+      "published": true,
+      "imageConfirmed": true,
+      "variants": [
+        {
+          "id": "CDA-CAN-006-24X48-OE",
+          "label": "24 × 48 in",
+          "priceCents": 52500,
+          "cartKey": "Horizon__CDA-CAN-006-24X48-OE",
+          "squareVariationId": "4YFQ5YTYAVKDFFZTL5J34VQR",
           "sizeConfirmed": true,
           "squareMapped": true,
           "squareProductionReady": false,
