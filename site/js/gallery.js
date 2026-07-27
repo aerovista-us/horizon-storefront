@@ -10,6 +10,7 @@
   var API_ORIGIN = "https://api.aerovista.us";
   var catalog = null;
   var artworks = [];
+  var consumerArtworks = [];
   var filters = ["All works"];
   var lastFocused = null;
   var toastTimer = null;
@@ -102,7 +103,7 @@
   function productStatus(product, variant) {
     if (product && product.placeholder) return "Artwork pending";
     if (variant && variant.checkoutReady) return "Available";
-    if (product && product.status === "preview") return "Studio preview";
+    if (product && product.status === "preview") return "Made to order";
     return "In development";
   }
 
@@ -142,7 +143,7 @@
   }
 
   function renderGrid() {
-    var visible = artworks.filter(function (art) {
+    var visible = consumerArtworks.filter(function (art) {
       return state.filter === "All works" || art.collection === state.filter;
     });
     grid.textContent = "";
@@ -188,23 +189,49 @@
       var meta = document.createElement("div");
       meta.className = "art-meta";
       var left = document.createElement("div");
+      left.className = "art-ident";
       var number = document.createElement("span");
       number.textContent = String(index + 1).padStart(2, "0");
+      var identity = document.createElement("div");
       var heading = document.createElement("h3");
       heading.textContent = art.title;
+      var subtitle = document.createElement("p");
+      subtitle.className = "art-subtitle";
+      subtitle.textContent = art.subtitle;
+      identity.appendChild(heading);
+      identity.appendChild(subtitle);
       left.appendChild(number);
-      left.appendChild(heading);
+      left.appendChild(identity);
 
       var right = document.createElement("div");
-      var finish = document.createElement("span");
-      finish.textContent = (art.finishes || [])[0] || "Canvas";
+      right.className = "art-commerce";
+      var format = document.createElement("p");
+      format.className = "art-format";
+      format.textContent = variant
+        ? variant.label + " · " + ((art.finishes || [])[0] || "Canvas")
+        : "Format pending";
       var price = document.createElement("p");
-      price.textContent = variant
-        ? money(variant.priceCents) + " · " + variant.label +
-          (art.placeholder ? " · artwork pending" : (variant.checkoutReady ? "" : " · preview"))
-        : "Availability pending";
-      right.appendChild(finish);
+      price.className = "art-price";
+      price.textContent = variant ? money(variant.priceCents) : "Availability pending";
+      var actions = document.createElement("div");
+      actions.className = "art-actions";
+      var viewButton = document.createElement("button");
+      viewButton.type = "button";
+      viewButton.className = "art-view-button";
+      viewButton.textContent = "View the Piece";
+      viewButton.addEventListener("click", function () { openArtwork(art, viewButton); });
+      actions.appendChild(viewButton);
+      if ((art.variants || []).length > 1) {
+        var sizesButton = document.createElement("button");
+        sizesButton.type = "button";
+        sizesButton.className = "art-sizes-button";
+        sizesButton.textContent = "Available Sizes";
+        sizesButton.addEventListener("click", function () { openArtwork(art, sizesButton); });
+        actions.appendChild(sizesButton);
+      }
+      right.appendChild(format);
       right.appendChild(price);
+      right.appendChild(actions);
       meta.appendChild(left);
       meta.appendChild(right);
       article.appendChild(meta);
@@ -574,12 +601,21 @@
       }).sort(function (left, right) {
         return (left.releasePriority || 999) - (right.releasePriority || 999);
       });
-      filters = ["All works"].concat(Array.from(new Set(artworks.map(function (product) {
+      consumerArtworks = artworks.filter(function (product) {
+        return product.consumerVisible !== false;
+      });
+      filters = ["All works"].concat(Array.from(new Set(consumerArtworks.map(function (product) {
         return product.collection;
       }).filter(Boolean))));
       renderFilters();
       renderGrid();
       renderCart();
+      document.querySelectorAll("[data-open-product]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var product = productById(button.getAttribute("data-open-product"));
+          if (product) openArtwork(product, button);
+        });
+      });
     } catch (error) {
       grid.innerHTML = "<p class=\"catalog-error\">The collection is temporarily unavailable. Please contact studio@aerovista.us.</p>";
       filterRow.hidden = true;
