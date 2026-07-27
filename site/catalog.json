@@ -2,21 +2,22 @@
   "schemaVersion": 1,
   "channel": "horizon",
   "currency": "USD",
-  "updated": "2026-07-26",
+  "updated": "2026-07-27",
   "products": [
     {
-      "id": "CDA-CAN-003",
-      "slug": "harbor-at-the-heart",
-      "title": "Harbor at the Heart",
-      "subtitle": "The Coeur d’Alene Resort and Marina",
+      "id": "CDA-CAN-010",
+      "slug": "mahogany-wake",
+      "title": "Mahogany Wake",
+      "subtitle": "A Classic Runabout on Lake Coeur d’Alene",
       "collection": "Coeur d’Alene",
-      "location": "Coeur d’Alene, Idaho",
+      "location": "Lake Coeur d’Alene, Idaho",
       "orientation": "Landscape",
-      "className": "art-wide",
-      "image": "gallery/03-dji-20230923161411-0006-d-copy.webp",
-      "alt": "Aerial photograph of the Coeur d’Alene Resort, marina slips, boardwalk, and lakefront",
-      "story": "The Coeur d’Alene Resort rises above the lakefront, surrounded by the marina, boardwalk, and deep blue water at the heart of the city.",
+      "className": "art-standard",
+      "image": "gallery/display/CDA-CAN-010-mahogany-wake.jpg",
+      "alt": "Aerial view of a classic mahogany runabout crossing calm Lake Coeur d’Alene water",
+      "story": "Warm mahogany, bright deckwork, and a precise wake give this classic runabout a sculptural presence against the lake’s dark, glass-like surface.",
       "specs": [
+        "20 × 28-inch landscape format",
         "1.25-inch canvas depth",
         "Fade-resistant poly-cotton canvas",
         "Hand-stretched over solid wood bars",
@@ -27,27 +28,19 @@
         "Gallery-wrapped canvas"
       ],
       "featured": true,
+      "collectionStatus": "featured",
+      "publicVisible": true,
+      "releasePriority": 1,
       "status": "preview",
       "published": true,
       "imageConfirmed": true,
       "variants": [
         {
-          "id": "CDA-CAN-003-24X32-OE",
-          "label": "24 × 32 in · catalog variation pending",
-          "priceCents": 34500,
-          "cartKey": null,
-          "squareVariationId": null,
-          "sizeConfirmed": true,
-          "squareMapped": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        },
-        {
-          "id": "CDA-CAN-003-CATALOG-LARGE",
-          "label": "30 × 40 in",
-          "priceCents": 49500,
-          "cartKey": "Horizon__CDA-CAN-003-CATALOG-LARGE",
-          "squareVariationId": "QNGEHC2XEGDTJC3GMEJREHR5",
+          "id": "CDA-CAN-010-20X28-OE",
+          "label": "20 × 28 in",
+          "priceCents": 27500,
+          "cartKey": "Horizon__CDA-CAN-010-20X28-OE",
+          "squareVariationId": "HM7W4RFQAJOTW4F7VCCPDQSK",
           "sizeConfirmed": true,
           "squareMapped": true,
           "squareProductionReady": false,
@@ -79,7 +72,10 @@
       "finishes": [
         "Gallery-wrapped canvas"
       ],
-      "featured": false,
+      "featured": true,
+      "collectionStatus": "featured",
+      "publicVisible": true,
+      "releasePriority": 2,
       "status": "preview",
       "published": true,
       "imageConfirmed": true,
@@ -121,7 +117,10 @@
       "finishes": [
         "Gallery-wrapped canvas"
       ],
-      "featured": false,
+      "featured": true,
+      "collectionStatus": "featured",
+      "publicVisible": true,
+      "releasePriority": 3,
       "status": "preview",
       "published": true,
       "imageConfirmed": true,
@@ -132,172 +131,6 @@
           "priceCents": 39500,
           "cartKey": "Horizon__CDA-CAN-002-20X40-OE",
           "squareVariationId": "75ED3TP2HPJ7AWUSU5O5ROXU",
-          "sizeConfirmed": true,
-          "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        }
-      ]
-    },
-    {
-      "id": "CDA-CAN-005",
-      "slug": "fairways-along-the-lake",
-      "title": "Fairways Along the Lake",
-      "subtitle": "The Coeur d’Alene Resort Golf Course in 360°",
-      "collection": "Coeur d’Alene 360°",
-      "location": "Coeur d’Alene Resort Golf Course, Idaho",
-      "orientation": "Panorama",
-      "className": "art-panorama",
-      "image": "gallery/display/CDA-CAN-005-fairways-along-the-lake.jpg",
-      "alt": "Aerial panorama across the Coeur d’Alene Resort Golf Course shoreline and Lake Coeur d’Alene",
-      "story": "A sweeping stitched panorama follows the resort golf course shoreline between manicured fairways and deep blue water, with the floating green visible offshore.",
-      "specs": [
-        "24 × 48-inch panoramic format",
-        "Exact 2:1 source artwork",
-        "1.25-inch canvas depth",
-        "Fade-resistant poly-cotton canvas",
-        "Mounting brackets included"
-      ],
-      "finishes": [
-        "Gallery-wrapped canvas"
-      ],
-      "featured": false,
-      "status": "preview",
-      "published": true,
-      "imageConfirmed": true,
-      "variants": [
-        {
-          "id": "CDA-CAN-005-24X48-OE",
-          "label": "24 × 48 in",
-          "priceCents": 52500,
-          "cartKey": "Horizon__CDA-CAN-005-24X48-OE",
-          "squareVariationId": "UE2R6GEZM73GJYVDEIK56XA7",
-          "sizeConfirmed": true,
-          "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        }
-      ]
-    },
-    {
-      "id": "CDA-CAN-006",
-      "slug": "lake-links-and-the-floating-green",
-      "title": "Lake, Links, and the Floating Green",
-      "subtitle": "The Coeur d’Alene Resort Golf Course in 360°",
-      "collection": "Coeur d’Alene 360°",
-      "location": "Coeur d’Alene Resort Golf Course, Idaho",
-      "orientation": "Panorama",
-      "className": "art-panorama",
-      "image": "gallery/display/CDA-CAN-006-lake-links-floating-green.jpg",
-      "alt": "Aerial panorama of Lake Coeur d’Alene, resort shoreline, docks, and the floating green",
-      "story": "The resort clubhouse, shoreline docks, open lake, and celebrated floating green come together beneath a broad, cloud-filled North Idaho sky.",
-      "specs": [
-        "24 × 48-inch panoramic format",
-        "Exact 2:1 source artwork",
-        "1.25-inch canvas depth",
-        "Fade-resistant poly-cotton canvas",
-        "Mounting brackets included"
-      ],
-      "finishes": [
-        "Gallery-wrapped canvas"
-      ],
-      "featured": false,
-      "status": "preview",
-      "published": true,
-      "imageConfirmed": true,
-      "variants": [
-        {
-          "id": "CDA-CAN-006-24X48-OE",
-          "label": "24 × 48 in",
-          "priceCents": 52500,
-          "cartKey": "Horizon__CDA-CAN-006-24X48-OE",
-          "squareVariationId": "4YFQ5YTYAVKDFFZTL5J34VQR",
-          "sizeConfirmed": true,
-          "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        }
-      ]
-    },
-    {
-      "id": "CDA-CAN-007",
-      "slug": "the-clock-at-resort-circle",
-      "title": "The Clock at Resort Circle",
-      "subtitle": "A 360° View of Downtown Coeur d’Alene",
-      "collection": "Coeur d’Alene 360°",
-      "location": "CDA Resort Circle, Coeur d’Alene, Idaho",
-      "orientation": "Panorama",
-      "className": "art-panorama",
-      "image": "gallery/display/CDA-CAN-007-clock-at-resort-circle.jpg",
-      "alt": "Aerial panorama centered on the clock at CDA Resort Circle, downtown Coeur d’Alene, and the lake",
-      "story": "The landmark clock anchors an immersive view connecting the resort, downtown streets, landscaped lawns, autumn trees, and the Coeur d’Alene waterfront.",
-      "specs": [
-        "24 × 48-inch panoramic format",
-        "Exact 2:1 source artwork",
-        "1.25-inch canvas depth",
-        "Fade-resistant poly-cotton canvas",
-        "Hand-stretched over solid wood bars",
-        "Mounting brackets included"
-      ],
-      "finishes": [
-        "Gallery-wrapped canvas"
-      ],
-      "featured": false,
-      "status": "preview",
-      "published": true,
-      "imageConfirmed": true,
-      "variants": [
-        {
-          "id": "CDA-CAN-007-24X48-OE",
-          "label": "24 × 48 in",
-          "priceCents": 52500,
-          "cartKey": "Horizon__CDA-CAN-007-24X48-OE",
-          "squareVariationId": "TSVZMVYNXIABNBTROMOH2WZ3",
-          "sizeConfirmed": true,
-          "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        }
-      ]
-    },
-    {
-      "id": "CDA-CAN-010",
-      "slug": "mahogany-wake",
-      "title": "Mahogany Wake",
-      "subtitle": "A Classic Runabout on Lake Coeur d’Alene",
-      "collection": "Coeur d’Alene",
-      "location": "Lake Coeur d’Alene, Idaho",
-      "orientation": "Landscape",
-      "className": "art-standard",
-      "image": "gallery/display/CDA-CAN-010-mahogany-wake.jpg",
-      "alt": "Aerial view of a classic mahogany runabout crossing calm Lake Coeur d’Alene water",
-      "story": "Warm mahogany, bright deckwork, and a precise wake give this classic runabout a sculptural presence against the lake’s dark, glass-like surface.",
-      "specs": [
-        "20 × 28-inch landscape format",
-        "1.25-inch canvas depth",
-        "Fade-resistant poly-cotton canvas",
-        "Hand-stretched over solid wood bars",
-        "Mounting brackets included",
-        "Ready to hang"
-      ],
-      "finishes": [
-        "Gallery-wrapped canvas"
-      ],
-      "featured": false,
-      "status": "preview",
-      "published": true,
-      "imageConfirmed": true,
-      "variants": [
-        {
-          "id": "CDA-CAN-010-20X28-OE",
-          "label": "20 × 28 in",
-          "priceCents": 27500,
-          "cartKey": "Horizon__CDA-CAN-010-20X28-OE",
-          "squareVariationId": "HM7W4RFQAJOTW4F7VCCPDQSK",
           "sizeConfirmed": true,
           "squareMapped": true,
           "squareProductionReady": false,

@@ -570,7 +570,9 @@
     try {
       catalog = await loadCatalog();
       artworks = catalog.products.filter(function (product) {
-        return product.published && (product.imageConfirmed || product.placeholder);
+        return product.publicVisible === true && (product.imageConfirmed || product.placeholder);
+      }).sort(function (left, right) {
+        return (left.releasePriority || 999) - (right.releasePriority || 999);
       });
       filters = ["All works"].concat(Array.from(new Set(artworks.map(function (product) {
         return product.collection;
