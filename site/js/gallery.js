@@ -159,10 +159,10 @@
       var dimensions = canvasDimensions(variant);
       var article = document.createElement("article");
       article.className = "wall-piece";
-      article.style.setProperty("--canvas-w", (dimensions.width * 6.1) + "px");
-      article.style.setProperty("--canvas-h", (dimensions.height * 6.1) + "px");
-      article.style.setProperty("--canvas-mobile-w", (dimensions.width * 6.5) + "px");
-      article.style.setProperty("--canvas-mobile-h", (dimensions.height * 6.5) + "px");
+      article.style.setProperty("--canvas-w", (dimensions.width * 6.8) + "px");
+      article.style.setProperty("--canvas-h", (dimensions.height * 6.8) + "px");
+      article.style.setProperty("--canvas-mobile-w", (dimensions.width * 7.2) + "px");
+      article.style.setProperty("--canvas-mobile-h", (dimensions.height * 7.2) + "px");
 
       var artZone = document.createElement("div");
       artZone.className = "wall-art-zone";

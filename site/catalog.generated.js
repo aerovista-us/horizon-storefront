@@ -6,6 +6,53 @@ window.HORIZON_CATALOG = {
   "updated": "2026-07-27",
   "products": [
     {
+      "id": "CDA-CAN-014",
+      "slug": "last-light-over-the-resort",
+      "title": "Last Light Over the Resort",
+      "subtitle": "Downtown Coeur d’Alene at Sunset",
+      "collection": "Coeur d’Alene",
+      "location": "Downtown Coeur d’Alene, Idaho",
+      "orientation": "Panorama",
+      "className": "art-panorama",
+      "image": "gallery/display/CDA-CAN-014-last-light-over-resort.jpg",
+      "wallImage": "gallery/wall/CDA-CAN-014-last-light-wall.webp",
+      "alt": "Aerial sunset view over the Coeur d’Alene Resort, downtown waterfront, Independence Point, lake, and distant mountains",
+      "story": "Last Light Over the Resort captures downtown Coeur d’Alene as evening settles across the resort, waterfront, lake, and distant mountains. Warm sunset light and cooler shoreline shadows create a calm aerial portrait of the city at the close of day.",
+      "specs": [
+        "12 × 24-inch panoramic format",
+        "1.25-inch canvas depth",
+        "Fade-resistant poly-cotton canvas",
+        "Hand-stretched over solid wood bars",
+        "Mounting brackets included",
+        "Ready to hang"
+      ],
+      "finishes": [
+        "Gallery-wrapped canvas"
+      ],
+      "featured": true,
+      "collectionStatus": "featured",
+      "publicVisible": true,
+      "consumerVisible": true,
+      "releasePriority": 1,
+      "status": "preview",
+      "published": true,
+      "imageConfirmed": true,
+      "variants": [
+        {
+          "id": "CDA-CAN-014-12X24-OE",
+          "label": "12 × 24 in",
+          "priceCents": 19500,
+          "cartKey": "Horizon__CDA-CAN-014-12X24-OE",
+          "squareVariationId": null,
+          "sizeConfirmed": true,
+          "squareMapped": false,
+          "squareProductionReady": false,
+          "printfulMapped": false,
+          "checkoutReady": false
+        }
+      ]
+    },
+    {
       "id": "CDA-CAN-010",
       "slug": "mahogany-wake",
       "title": "Mahogany Wake",
@@ -33,7 +80,7 @@ window.HORIZON_CATALOG = {
       "collectionStatus": "featured",
       "publicVisible": true,
       "consumerVisible": true,
-      "releasePriority": 1,
+      "releasePriority": 2,
       "status": "preview",
       "published": true,
       "imageConfirmed": true,
@@ -44,53 +91,6 @@ window.HORIZON_CATALOG = {
           "priceCents": 27500,
           "cartKey": "Horizon__CDA-CAN-010-20X28-OE",
           "squareVariationId": "HM7W4RFQAJOTW4F7VCCPDQSK",
-          "sizeConfirmed": true,
-          "squareMapped": true,
-          "squareProductionReady": false,
-          "printfulMapped": false,
-          "checkoutReady": false
-        }
-      ]
-    },
-    {
-      "id": "CDA-CAN-001",
-      "slug": "autumn-over-coeur-dalene",
-      "title": "Autumn Over Coeur d’Alene",
-      "subtitle": "Lake City in Color",
-      "collection": "Coeur d’Alene",
-      "location": "Coeur d’Alene, Idaho",
-      "orientation": "Panorama",
-      "className": "art-panorama",
-      "image": "gallery/06-dji-20231015121918-0021-d.webp",
-      "wallImage": "gallery/wall/CDA-CAN-001-autumn-wall.webp",
-      "alt": "Aerial view across autumn trees and downtown Coeur d’Alene toward the lake and surrounding mountains",
-      "story": "Coeur d’Alene rises through a canopy of autumn color, framed by the lake, distant mountains, and the familiar skyline of North Idaho.",
-      "specs": [
-        "20 × 40-inch panoramic format",
-        "1.25-inch canvas depth",
-        "Fade-resistant poly-cotton canvas",
-        "Hand-stretched over solid wood bars",
-        "Mounting brackets included",
-        "Ready to hang"
-      ],
-      "finishes": [
-        "Gallery-wrapped canvas"
-      ],
-      "featured": true,
-      "collectionStatus": "featured",
-      "publicVisible": true,
-      "consumerVisible": true,
-      "releasePriority": 2,
-      "status": "preview",
-      "published": true,
-      "imageConfirmed": true,
-      "variants": [
-        {
-          "id": "CDA-CAN-001-20X40-OE",
-          "label": "20 × 40 in",
-          "priceCents": 39500,
-          "cartKey": "Horizon__CDA-CAN-001-20X40-OE",
-          "squareVariationId": "DZHQKOUSDEIQIAK4HISEGWMX",
           "sizeConfirmed": true,
           "squareMapped": true,
           "squareProductionReady": false,
