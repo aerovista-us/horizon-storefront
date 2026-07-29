@@ -12,7 +12,7 @@
   <meta property="og:image" content="gallery/03-dji-20230923161411-0006-d-copy.webp" />
   <meta name="robots" content="noindex" /><!-- Gated public preview: remove only after commerce launch approval -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/styles.css?v=20260727-two-edge-shadow" />
+  <link rel="stylesheet" href="css/styles.css?v=20260728-photographic-room" />
 </head>
 <body>
   <main>
@@ -156,10 +156,6 @@
       <button class="modal-close" id="modalClose" type="button" aria-label="Close artwork details">×</button>
       <div class="artwork-stage" id="artworkStage">
         <div class="room-context" id="roomContext" aria-hidden="true" hidden>
-          <span class="room-moulding"></span>
-          <span class="room-rug"></span>
-          <span class="room-chair"></span>
-          <span class="room-credenza"><i class="room-vessel"></i><i class="room-books"></i></span>
           <span class="room-scale" id="roomScale"></span>
         </div>
         <div class="preview-canvas" id="previewCanvas">
@@ -167,11 +163,11 @@
           <img id="previewImageSecondary" src="" alt="" hidden />
           <span></span>
         </div>
-        <div class="room-controls" id="roomControls" role="group" aria-label="Choose room wall tone" hidden>
-          <span>Wall tone</span>
-          <button type="button" data-room-tone="gallery" aria-pressed="true"><i></i>Warm gallery</button>
-          <button type="button" data-room-tone="limestone" aria-pressed="false"><i></i>Limestone</button>
-          <button type="button" data-room-tone="charcoal" aria-pressed="false"><i></i>Charcoal</button>
+        <div class="room-controls" id="roomControls" role="group" aria-label="Choose room lighting" hidden>
+          <span>Room light</span>
+          <button type="button" data-room-tone="gallery" aria-pressed="true"><i></i>Natural</button>
+          <button type="button" data-room-tone="limestone" aria-pressed="false"><i></i>Soft ivory</button>
+          <button type="button" data-room-tone="charcoal" aria-pressed="false"><i></i>Evening</button>
         </div>
         <button class="view-toggle" id="viewToggle" type="button">View in room</button>
       </div>

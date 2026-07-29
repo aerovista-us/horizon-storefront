@@ -385,9 +385,14 @@
       button.setAttribute("aria-pressed", button.getAttribute("data-room-tone") === state.roomTone ? "true" : "false");
     });
     var variant = selectedVariant();
+    var roomDimensions = variant && variant.label.match(/\d+(?:\.\d+)?/g);
+    var roomWidth = roomDimensions && roomDimensions.length > 1
+      ? Number(roomDimensions[1])
+      : 32;
+    stage.style.setProperty("--room-canvas-width-in", String(roomWidth));
     roomScale.textContent = variant
-      ? variant.label.split(" · ")[0] + " · shown on a 9 ft gallery wall"
-      : "Gallery scale preview";
+      ? variant.label.split(" · ")[0] + " · scaled against a 9 ft wall"
+      : "Room scale preview";
     viewToggle.textContent = state.roomView ? "Close room view" : "View in room";
   }
 
