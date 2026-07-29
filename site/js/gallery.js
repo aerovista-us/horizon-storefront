@@ -319,6 +319,7 @@
 
   function openArtwork(art, triggerEl) {
     var variant = preferredVariant(art);
+    var dimensions = canvasDimensions(variant);
     state.selected = art;
     state.variantId = variant && variant.id;
     state.finish = (art.finishes || [])[0] || null;
@@ -333,6 +334,7 @@
           (art.className === "art-square" ? "room-shape-square" : "room-shape-standard"))
     );
     previewCanvas.classList.toggle("diptych", art.presentation === "diptych");
+    previewCanvas.style.setProperty("--canvas-aspect", dimensions.width + " / " + dimensions.height);
     previewCanvas.style.setProperty("--canvas-image", canvasImageValue(art.image));
     viewToggle.hidden = Boolean(art.placeholder);
     previewImg.src = art.image;
